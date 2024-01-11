@@ -1,15 +1,15 @@
 import os
 
-BASE_PATH = '/home/lhf/yzy/cd_res'
+BASE_PATH = '/content/DASNet/cd_res'
 PRETRAIN_MODEL_PATH = os.path.join(BASE_PATH,'pretrain')
-DATA_PATH = '/home/lhf/yzy/changedetection/SceneChangeDet/BCD'
+DATA_PATH = '/content/DASNet/changedetection/SceneChangeDet/BCD'
 TRAIN_DATA_PATH = os.path.join(DATA_PATH)
 TRAIN_LABEL_PATH = os.path.join(DATA_PATH)
 TRAIN_TXT_PATH = os.path.join(TRAIN_DATA_PATH,'train.txt')
 VAL_DATA_PATH = os.path.join(DATA_PATH)
 VAL_LABEL_PATH = os.path.join(DATA_PATH)
 VAL_TXT_PATH = os.path.join(VAL_DATA_PATH,'val.txt')
-SAVE_PATH = '/home/lhf/yzy/cdout/bone/resnet50/BCD2'
+SAVE_PATH = '/content/DASNet/cdout/bone/resnet50/BCD2'
 SAVE_CKPT_PATH = os.path.join(SAVE_PATH,'ckpt')
 if not os.path.exists(SAVE_CKPT_PATH):
     os.mkdir(SAVE_CKPT_PATH)
