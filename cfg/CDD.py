@@ -15,7 +15,7 @@ if not os.path.exists(SAVE_CKPT_PATH):
     os.makedirs(SAVE_CKPT_PATH, exist_ok=True)
 SAVE_PRED_PATH = os.path.join(SAVE_PATH,'prediction')
 if not os.path.exists(SAVE_PRED_PATH):
-    os.mkdirs(SAVE_PRED_PATH, exist_ok=True)
+    os.makedirs(SAVE_PRED_PATH, exist_ok=True)
 TRAINED_BEST_PERFORMANCE_CKPT = os.path.join(SAVE_CKPT_PATH,'model_best.pth')
 INIT_LEARNING_RATE = 1e-4
 DECAY = 5e-5
