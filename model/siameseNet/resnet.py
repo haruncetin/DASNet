@@ -4,6 +4,9 @@ import torch
 import torch.utils.model_zoo as model_zoo
 import torch.nn as nn
 
+import cfg.ptconfig as cfg
+
+
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152', 'BasicBlock', 'Bottleneck']
 
@@ -238,7 +241,8 @@ def resnet18(pretrained=False, **kwargs):
     return model
 
 
-def resnet34(pretrained=False, root='/home/lhf/yzy/cd_res/pretrain',**kwargs):
+#def resnet34(pretrained=False, root='/home/lhf/yzy/cd_res/pretrain',**kwargs):
+def resnet34(pretrained=False, root=cfg.PTMODELS_ROOT,**kwargs):
     """Constructs a ResNet-34 model.
 
     Args:
@@ -250,7 +254,7 @@ def resnet34(pretrained=False, root='/home/lhf/yzy/cd_res/pretrain',**kwargs):
     return model
 
 
-def resnet50(pretrained=True, root='/home/lhf/yzy/cd_res/pretrain', **kwargs):
+def resnet50(pretrained=True, root=cfg.PTMODELS_ROOT, **kwargs):
     """Constructs a ResNet-50 model.
 
     Args:
@@ -258,13 +262,13 @@ def resnet50(pretrained=True, root='/home/lhf/yzy/cd_res/pretrain', **kwargs):
     """
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
-        model_pth = '/home/lhf/yzy/cd_res/pretrain/resnet50-19c8e357.pth'
+        model_pth = os.path.join(cfg.PTMODELS_ROOT,'resnet50-19c8e357.pth')
         model.load_state_dict(torch.load(model_pth))
         print('load pretrained resnet50:', model_pth)
     return model
 
 
-def resnet101(pretrained=False, root='/home/lhf/yzy/cd_res/pretrain', **kwargs):
+def resnet101(pretrained=False, root=cfg.PTMODELS_ROOT, **kwargs):
     """Constructs a ResNet-101 model.
 
     Args:
@@ -274,13 +278,13 @@ def resnet101(pretrained=False, root='/home/lhf/yzy/cd_res/pretrain', **kwargs):
     #Remove the following lines of comments
     #if u want to train from a pretrained model
     if pretrained:
-        model_pth = '/home/lhf/yzy/cd_res/pretrain/resnet101-5d3b4d8f.pth'
+        model_pth = os.path.join(cfg.PTMODELS_ROOT,'resnet101-5d3b4d8f.pth')
         model.load_state_dict(torch.load(model_pth))
         print('load pretrained resnet101:', model_pth)
     return model
 
 
-def resnet152(pretrained=False, root='~/.encoding/models', **kwargs):
+def resnet152(pretrained=False, root=cfg.PTMODELS_ROOT, **kwargs):
     """Constructs a ResNet-152 model.
 
     Args:
@@ -289,8 +293,7 @@ def resnet152(pretrained=False, root='~/.encoding/models', **kwargs):
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     if pretrained:
        # model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
-        model.load_state_dict(torch.load(
-            '/home/lhf/yzy/cd_res/pretrain/resnet152-b121ed2d.pth'), strict=False)
+        model.load_state_dict(torch.load(os.path.join(cfg.PTMODELS_ROOT,'resnet152-b121ed2d.pth')), strict=False)
     return model
 
 if __name__ == '__main__':
