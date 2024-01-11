@@ -12,10 +12,10 @@ VAL_TXT_PATH = os.path.join(VAL_DATA_PATH,'val.txt')
 SAVE_PATH = '/content/cdout/bone/resnet50/mcanshu'
 SAVE_CKPT_PATH = os.path.join(SAVE_PATH,'ckpt')
 if not os.path.exists(SAVE_CKPT_PATH):
-    os.mkdir(SAVE_CKPT_PATH, parents=True, exist_ok=True)
+    os.makedirs(SAVE_CKPT_PATH, exist_ok=True)
 SAVE_PRED_PATH = os.path.join(SAVE_PATH,'prediction')
 if not os.path.exists(SAVE_PRED_PATH):
-    os.mkdir(SAVE_PRED_PATH, parents=True, exist_ok=True)
+    os.mkdirs(SAVE_PRED_PATH, exist_ok=True)
 TRAINED_BEST_PERFORMANCE_CKPT = os.path.join(SAVE_CKPT_PATH,'model_best.pth')
 INIT_LEARNING_RATE = 1e-4
 DECAY = 5e-5
