@@ -1,4 +1,5 @@
 """Dilated ResNet"""
+import os
 import math
 import torch
 import torch.utils.model_zoo as model_zoo
@@ -263,7 +264,8 @@ def resnet50(pretrained=True, root=cfg.PTMODELS_ROOT, **kwargs):
     model = ResNet(Bottleneck, [3, 4, 6, 3], **kwargs)
     if pretrained:
         model_pth = os.path.join(cfg.PTMODELS_ROOT,'resnet50-19c8e357.pth')
-        model.load_state_dict(torch.load(model_pth))
+        # model.load_state_dict(torch.load(model_pth))
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet50']))
         print('load pretrained resnet50:', model_pth)
     return model
 
@@ -279,7 +281,8 @@ def resnet101(pretrained=False, root=cfg.PTMODELS_ROOT, **kwargs):
     #if u want to train from a pretrained model
     if pretrained:
         model_pth = os.path.join(cfg.PTMODELS_ROOT,'resnet101-5d3b4d8f.pth')
-        model.load_state_dict(torch.load(model_pth))
+        # model.load_state_dict(torch.load(model_pth))
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet101']))
         print('load pretrained resnet101:', model_pth)
     return model
 
@@ -292,8 +295,8 @@ def resnet152(pretrained=False, root=cfg.PTMODELS_ROOT, **kwargs):
     """
     model = ResNet(Bottleneck, [3, 8, 36, 3], **kwargs)
     if pretrained:
-       # model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
-        model.load_state_dict(torch.load(os.path.join(cfg.PTMODELS_ROOT,'resnet152-b121ed2d.pth')), strict=False)
+        model.load_state_dict(model_zoo.load_url(model_urls['resnet152']))
+        # model.load_state_dict(torch.load(os.path.join(cfg.PTMODELS_ROOT,'resnet152-b121ed2d.pth')), strict=False)
     return model
 
 if __name__ == '__main__':

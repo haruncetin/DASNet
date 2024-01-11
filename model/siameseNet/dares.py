@@ -4,6 +4,10 @@
 # Copyright (c) 2018
 ###########################################################################
 from __future__ import division
+
+import sys
+sys.path.append("D:\Works\PhD\Machine Learning\Project\DASNet_CD\DASNet\model\siameseNet")
+
 import os
 import numpy as np
 import torch

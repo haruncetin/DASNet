@@ -1,15 +1,16 @@
 import os
 
-BASE_PATH = '/content/cd_res'
-PRETRAIN_MODEL_PATH = os.path.join(BASE_PATH,'pretrain')
-DATA_PATH = '/content/changedetection/SceneChangeDet/BCD'
+BASE_PATH = '/content'
+RES_PATH = os.path.join(BASE_PATH, 'cd_res')
+PRETRAIN_MODEL_PATH = os.path.join(RES_PATH,'pretrain')
+DATA_PATH = os.path.join(BASE_PATH, 'changedetection','SceneChangeDet','BCD')
 TRAIN_DATA_PATH = os.path.join(DATA_PATH)
 TRAIN_LABEL_PATH = os.path.join(DATA_PATH)
 TRAIN_TXT_PATH = os.path.join(TRAIN_DATA_PATH,'train.txt')
 VAL_DATA_PATH = os.path.join(DATA_PATH)
 VAL_LABEL_PATH = os.path.join(DATA_PATH)
 VAL_TXT_PATH = os.path.join(VAL_DATA_PATH,'val.txt')
-SAVE_PATH = '/content/cdout/bone/resnet50/BCD2'
+SAVE_PATH = os.path.join(BASE_PATH, 'cdout','bone','resnet50','BCD2')
 SAVE_CKPT_PATH = os.path.join(SAVE_PATH,'ckpt')
 if not os.path.exists(SAVE_CKPT_PATH):
     os.makedirs(SAVE_CKPT_PATH, exist_ok=True)
